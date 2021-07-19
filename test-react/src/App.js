@@ -1,17 +1,17 @@
+import { useState } from "react";
 import UserList from "./components/UserList";
+import { users } from './components/UsersData';
 
 function App() {
-  const users = [
-    { id: 1, name: 'Tonmoy', dept: 'CSE' },
-    { id: 2, name: 'Ulrich', dept: 'SE' },
-    { id: 3, name: 'Ulrich', dept: 'CS' },
-    { id: 4, name: 'Abc', dept: 'EEE' },
-    { id: 5, name: 'Xyz', dept: 'CIS' }
-  ];
+  const [user, setUser] = useState(users);
+  const deleteUser = (id) => {
+    const data = user.filter((user) => user.id !== id);
+    setUser(data);
+  }
 
   return (
     <div className="App">
-      <UserList users={users} />
+      <UserList users={user} deleteCallback={deleteUser} />
     </div>
   );
 }
