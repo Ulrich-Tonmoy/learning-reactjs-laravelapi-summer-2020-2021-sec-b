@@ -1,13 +1,15 @@
-import React from 'react';
-import User from './User';
+import User from "./User";
 
-export default function UserList({ users, deleteCallback }) {
+const UserList = ({ list, callback }) => {
+    console.log(list);
 
     return (
         <div>
-            {users.map(user => {
-                return <User {...user} callback={deleteCallback} key={user.id} />
+            {list.map((user) => {
+                return <User {...user} deletecallback={callback} />;
             })}
         </div>
-    )
-}
+    );
+};
+
+export default UserList;

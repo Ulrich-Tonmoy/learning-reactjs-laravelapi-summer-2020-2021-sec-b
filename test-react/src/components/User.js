@@ -1,14 +1,16 @@
-import './User.css';
+import { Link } from "react-router-dom";
+import "./User.css";
 
-export default function User({ id, name, dept, callback }) {
+const User = ({ id, name, dept, deletecallback }) => {
     return (
-        <div className="user">
-            <h3>Name:{name}</h3>
-            <p>Id:{id}</p>
-            <p>Dept:{dept}</p>
-            <button id="delete" onClick={() => { callback(id) }}>Delete</button>
-            <button id="edit" onClick={() => { }}>Edit</button>
-            {/* <a href={"/edit/" + id}>Edit</a> */}
+        <div className="user" style={{ color: "red" }}>
+            <h3>Name: {name}</h3>
+            <p>ID: {id}</p>
+            <p>Dept: {dept}</p>
+            <button onClick={() => deletecallback(id)}>Delete</button>
+            <Link to={`/edit/${id}`}> Edit </Link>
         </div>
-    )
-}
+    );
+};
+
+export default User;
