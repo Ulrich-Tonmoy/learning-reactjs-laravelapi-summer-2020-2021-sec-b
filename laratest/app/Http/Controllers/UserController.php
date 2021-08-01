@@ -63,12 +63,4 @@ class UserController extends Controller
 
         return redirect()->route('user.index');
     }
-	
-	public function userList(Request $req)
-	{
-		$user=DB::table('users');
-		if($user){
-			return response()->json($user,200);
-		}
-	}
 }

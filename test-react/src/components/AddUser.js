@@ -1,15 +1,17 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 const AddUser = ({ status, callback }) => {
     const { id: eid } = useParams();
     const [id, setId] = useState("");
     const [name, setName] = useState("");
     const [dept, setDept] = useState("");
+    const history = useHistory();
 
     const onSubmit = (e) => {
         e.preventDefault();
         callback({ id: id, name: name, dept: dept });
+        history.push("/userlist");
     };
     return (
         <div>
