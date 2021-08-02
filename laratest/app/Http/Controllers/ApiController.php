@@ -42,8 +42,8 @@ class ApiController extends Controller
     {
         $user  = new User;
         $user->name = $req->name;
-        $user->password = $req->password;
-        $user->type = $req->type;
+        //$user->password = $req->password;
+        //$user->type = $req->type;
         $user->dept = $req->dept;
         $user->save();
         return response()->json($user, 200);
